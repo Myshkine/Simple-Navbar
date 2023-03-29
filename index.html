@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandingPage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="fonts" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    <nav>
+        <div id="navbar">
+                <a class="logo" href="index.html">Frogg</a>
+                <div></div>
+                <a class="navitem" href="index.html">Home</a>
+                <a class="navitem" href="./pages/about.html">About</a>
+                <a class="navitem" href="./pages/contact.html">Contact</a>
+                <div class="nav-item-submenu">
+                    <button class="nav-item-button" onclick="dropDownFunction()">Services<i class="arrow down"></i></button>
+                    <div id="nav-submenu-content">
+                        <a class="nav-sub-item" href="#" onclick="removeDropdownListener()">Accounting & Tax</a>
+                        <a class="nav-sub-item" href="#" onclick="removeDropdownListener()">Cybersecurity</a>
+                        <a class="nav-sub-item" href="#" onclick="removeDropdownLIstener()">CRM Systems</a>
+                    </div>
+                </div>
+                <a class="navitem" href="./pages/login.html">Login</a>
+                <a class="navitem" href="./pages/signup.html">Signup</a>
+            </div>
+        </div>
+    </nav>
+</body>
+<script>
+    function dropDownFunction() {
+        document.getElementById("nav-submenu-content").style.display = "grid";
+        document.addEventListener("click", closeDropdownFunction);
+    }
+
+    function closeDropdownFunction(event) {
+    var dropdown = document.getElementById("nav-submenu-content");
+    var navItemButton = document.querySelector(".nav-item-button");
+
+    if (!dropdown.contains(event.target) && !navItemButton.contains(event.target)) {
+        dropdown.style.display = "none";
+        document.removeEventListener("click", closeDropdownFunction);
+        }
+    }
+    
+    function removeDropdownListener() {
+    document.removeEventListener("click", closeDropdownFunction);
+    }
+</script>
+</html>
